@@ -5,14 +5,14 @@ import java.util.HashMap;
 public class CheckManager {
 	
 	public enum CheckType {
-		FLY(1),
-		SPEED(2),
+		FLY(1), // move
+		SPEED(2), // move
 		
-		KILLAURA(3),
-		REACH(4),
+		KILLAURA(3), // combat
+		REACH(4), // combat
 		
-		FAST_BREAK(5),
-		PHASE_BREAK(6);
+		FAST_BREAK(5), // blocks
+		PHASE_BREAK(6); // blocks
 		
 		CheckType(int id) {
 			this.id = id;
