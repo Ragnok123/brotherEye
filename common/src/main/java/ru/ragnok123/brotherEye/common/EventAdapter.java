@@ -1,5 +1,6 @@
 package ru.ragnok123.brotherEye.common;
 
+import ru.ragnok123.brotherEye.common.check.Check;
 import ru.ragnok123.brotherEye.common.check.CheckManager;
 import ru.ragnok123.brotherEye.common.check.CheckManager.CheckType;
 import ru.ragnok123.brotherEye.common.check.impl.*;
@@ -18,12 +19,20 @@ public abstract class EventAdapter{
 			
 			FlyCheck fly = (FlyCheck) mgr.getCheck(CheckType.FLY);
 			if(fly.handle(move)) {
-				handleViolation(BrotherEyeManager.get().getPlayer(move.getPlayer()), fly.getName());
+				handleViolation(BrotherEyeManager.get().getPlayer(move.getPlayer()), fly);
 			}
 			break;
 		}
 	}
 	
-	public abstract void handleViolation(CheatPlayer p, String cause);
+	private void handleViolation(CheatPlayer p, Check check) {
+		Punishment punishment = Punishment.WARNING;
+		if(p.warnings >= check.getMaxWarnings()) {
+			punishment = check.getPunishment();
+		}
+		handleViolation(p, check.getName(), punishment);
+	}
+	
+	public abstract void handleViolation(CheatPlayer p, String cause, Punishment punishment);
 	
 }

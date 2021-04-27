@@ -26,6 +26,11 @@
             <version>1.16.16</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+        	<groupId>ru.ragnok123</groupId>
+        	<artifactId>sqlNukkitLib</artifactId>
+        	<version>1.0</version>
+        </dependency>
 	</dependencies>
 	<build>
   	<defaultGoal>clean package</defaultGoal>
