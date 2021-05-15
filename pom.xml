@@ -15,6 +15,7 @@
 		<module>brotherEye-common</module>
 		<module>brotherEye-nukkit</module>
 		<module>brotherEye-spigot</module>
+		<module>brotherEye-jbserver</module>
 	</modules>
    
 	<repositories>
